@@ -1,0 +1,202 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    background-color: #f0f1f6;
+    width: 100%;
+    height: 100%;
+}
+#result {
+    text-align: center;
+    border-radius: 31px;
+    background: linear-gradient(
+        145deg, #92ddf4, #cad6ff);
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    position: absolute;
+    width: 70px;
+    bottom: -60%;
+    left: 50%;
+    transform: translateX(-50%); 
+    opacity: 0;
+
+    animation: fadeIn 0.5s forwards;
+}
+#ui_dice {
+    margin: 0px auto;
+    position: relative;
+    width: 100%;
+    transition: opacity 0.4s;
+    text-align: center;
+}
+#platform.playing > #dice {
+    animation-duration: 1s;
+}
+#platform.playing {
+    transform-style: preserve-3d;
+    animation: roll 1s linear;
+}
+#platform.stop > #dice, #ui_dado #platform.stop {
+    animation-play-state: paused;
+}
+#platform {
+    margin-top: 100px;
+    margin-bottom: 120px;
+    margin-left: calc(50% - 50px);
+    margin-right: calc(50% - 50px);
+    height: 120px;
+}
+#dice {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(10deg) rotateZ(-15deg);
+}
+#platform.playing > #dice {
+    animation: spin 1.4s infinite linear;
+}
+.side {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    box-shadow: inset 0 0 40px #dcdeddd9;
+    border-radius: 20px;
+}
+.cover, .inner {
+    background: #e9ecea;
+    box-shadow: none;
+}
+.cover {
+    border-radius: 0;
+}
+.cover.x {
+    transform: rotateY(90deg);
+}
+.cover.z {
+    transform: rotateX(90deg);
+}
+.front {
+    transform: translateZ(50px);
+}
+.front.inner {
+    transform: translateZ(49px);
+}
+.back {
+    transform: rotateX(-180deg) translateZ(50px);
+}
+.back.inner {
+    transform: rotateX(-180deg) translateZ(49px);
+}
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+.right.inner {
+    transform: rotateY(90deg) translateZ(49px);
+}
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+.left.inner {
+    transform: rotateY(-90deg) translateZ(49px);
+}
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+.top.inner {
+    transform: rotateX(90deg) translateZ(49px);
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.bottom.inner {
+    transform: rotateX(-90deg) translateZ(49px);
+}
+.dot {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #64ccff;
+    box-shadow: inset 3px 10px 8px #4ca1fb, inset -5px -10px 15px #8ce3f2;
+}
+
+.dot.center {
+    margin: 38px 0 0 38px;
+}
+.dot.center.dleft {
+    margin: 38px 0 0 10px;
+}
+.dot.center.dright {
+    margin: 38px 0 0 67px;
+}
+.dot.dtop {
+    margin-top: 10px;
+}
+.dot.dleft {
+    margin-left: 67px;
+}
+.dot.dright {
+    margin-left: 10px;
+}
+.dot.dbottom {
+    margin-top: 67px;
+}
+@keyframes spin {
+    0% {
+        transform: translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+   }
+    16% {
+        transform: translateZ(-100px) rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+   }
+    33% {
+        transform: translateZ(-100px) rotateX(360deg) rotateY(90deg) rotateZ(180deg);
+   }
+    50% {
+        transform: translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+   }
+    66% {
+        transform: translateZ(-100px) rotateX(180deg) rotateY(360deg) rotateZ(270deg);
+   }
+    83% {
+        transform: translateZ(-100px) rotateX(270deg) rotateY(180deg) rotateZ(180deg);
+   }
+    100% {
+        transform: translateZ(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+   }
+}
+
+@keyframes roll {
+    0% {
+        transform: translate3d(0px, 0px, 0px);
+   }
+    30% {
+        transform: translate3d(100px, -20px, 0px);
+   }
+    50% {
+        transform: translate3d(0px, -50px, 0px);
+   }
+    80% {
+        transform: translate3d(-100px, -20px, 0px);
+   }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+   }
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
