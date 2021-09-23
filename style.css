@@ -12,7 +12,7 @@ html, body {
     border-radius: 31px;
     background: linear-gradient(
         145deg, #92ddf4, #cad6ff);
-    box-shadow:  20px 20px 60px #bebebe,
+    box-shadow:  20px 20px 60px #bebebe85,
                 -20px -20px 60px #ffffff;
 
     color: white;
